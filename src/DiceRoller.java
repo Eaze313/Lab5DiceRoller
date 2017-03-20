@@ -16,10 +16,22 @@ public class DiceRoller {
             System.out.println("Enter the number of sides on your die: ");
             sides = scan.nextInt();
 
-            // call the methods
+            //Method call
+            int result1 = RollDice(sides);
+            int result2 = RollDice(sides);
+            int sum = result1 + result2;
 
-            //6. Display results
-            System.out.println("Your results are: " + RollDice(sides) + " and " + RollDice(sides));
+            if (sum == 2) {
+                System.out.println("Snake Eyes!");
+            }
+            if (sum == 3) {
+                System.out.println("Craps!");
+            }
+            if (sum == 12) {
+                System.out.println("Boxcars!");
+            }
+            //Display results
+            System.out.println("Your results are: " + result1 + " and " + result2);
 
             System.out.println("Do You Want to Continue? y/n");
             answer = scan.next();
@@ -27,7 +39,11 @@ public class DiceRoller {
     }
 
         public static int RollDice ( int sides){
-            return (int) (Math.random() * sides) + 1;
-            } //end of method
+
+        //casts the return to an integer
+        return (int) (Math.random() * sides) + 1;
+
+        } //end of method
+
 
     } // end main
